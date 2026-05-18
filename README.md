@@ -12,7 +12,7 @@ pinned: false
 
 # Tanglarity: Stability AI
 
-> An AI assisted stabilization app designed to help overwhelmed users reduce cognitive overload, identify their current phase, and move toward manageable action.
+> An AI assisted stabilization app designed to help overwhelmed users reduce cognitive overload, identify users current phase, and move toward manageable action.
 
 ## Table of Contents
 
@@ -40,7 +40,7 @@ pinned: false
 
 ## Pitch
 
-Tanglarity is an AI assisted stabilization app that helps overwhelmed users identify their current phase whether survival, stabilization, organization, growth or somewhere in between to reduce cognitive overload, and move toward realistic action closing the gap between knowing what to do and actually being able to do it.
+Tanglarity is an AI assisted stabilization app that helps overwhelmed users (13+) identify their current phase whether survival, stabilization, organization, growth or somewhere in between to reduce cognitive overload, and move toward realistic action closing the gap between knowing what to do and actually being able to do it.
 
 ---
 
