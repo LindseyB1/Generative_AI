@@ -48,7 +48,7 @@ Tanglarity is an AI assisted stabilization app that helps overwhelmed users (13+
 
 Tanglarity is built around the idea that people often know what they should do, but still struggle to act when they are overwhelmed, scattered, frozen, or overloaded.
 
-Stability AI is the first working module inside Tanglarity. It uses a calming interface, structured inputs, stabilization phases, progress sliders, and constrained AI style responses to help users slow down and identify one manageable next step.
+Stability AI is the first working module inside Tanglarity. It uses a calming interface, structured inputs, stabilization phases, progress sliders, and constrained AI style responses to help users slow down and identify one manageable next step. 
 
 The project is designed to help users understand not only the phases themselves, but how each phase builds upon the next. It intentionally avoids skipping stabilization simply to chase productivity because instability often creates cycles of overwhelm, avoidance, and unfinished systems.
 
