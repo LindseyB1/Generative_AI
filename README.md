@@ -62,7 +62,7 @@ https://huggingface.co/spaces/LindseyB1/tanglarity-stability-ai
 
 ## Demo Preview
 
-Add GIF files to the repository and update filenames below.
+Add GIF files to the repository and update filenames below (seen in edit mode tanglarity-demo_1.mp4 (this first image appears on the second page to keep the branding and tranquil interface) & tanglarity-demo_2.mp4 (this second image appears on the first screen before clicking the button to begin). 
 
 ![Tanglarity Welcome Experience](tanglarity-demo_2.gif)
 
