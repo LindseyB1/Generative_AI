@@ -62,7 +62,7 @@ https://huggingface.co/spaces/LindseyB1/tanglarity-stability-ai
 
 ## Demo Preview
 
-Add GIF or screenshot files to the repository and update filenames below.
+Add GIF files to the repository and update filenames below.
 
 ![Tanglarity Welcome Experience](tanglarity-demo_2.gif)
 
