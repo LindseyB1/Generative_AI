@@ -1,398 +1,415 @@
-# Tanglarity
+---
+title: Tanglarity Stability AI
+emoji: 🧠
+colorFrom: blue
+colorTo: indigo
+sdk: streamlit
+sdk_version: "1.45.0"
+python_version: "3.10"
+app_file: app.py
+pinned: false
+---
 
-Tanglarity is an AI-assisted cognitive clarity and stabilization platform designed to help users reduce overwhelm, untangle competing priorities, and move from scattered thinking toward manageable action.
+# Tanglarity: Stability AI
 
-The name combines the idea of being tangled with the pursuit of clarity.
+> An AI assisted stabilization app designed to help overwhelmed users reduce cognitive overload, identify their current phase, and move toward manageable action.
 
-The platform is intentionally not built for maximum productivity. Its goal is clarity, stabilization, peace, reduced chaos, and realistic forward movement.
+## Table of Contents
+
+* [Pitch](#pitch)
+* [Summary](#summary)
+* [Live Demo](#live-demo)
+* [Demo Preview](#demo-preview)
+* [Problem Being Solved](#problem-being-solved)
+* [Intended Audience](#intended-audience)
+* [How To Use The App](#how-to-use-the-app)
+* [Stabilization Phases](#stabilization-phases)
+* [Current Features](#current-features)
+* [Prompt Engineering](#prompt-engineering)
+* [System Prompt](#system-prompt)
+* [Grounding](#grounding)
+* [Build Log / Development Timeline](#build-log--development-timeline)
+* [Evaluation](#evaluation)
+* [Honest Limits](#honest-limits)
+* [Originality and Ownership](#originality-and-ownership)
+* [AI Tools and Technologies Used](#ai-tools-and-technologies-used)
+* [Future Improvements](#future-improvements)
+* [Final Reflection](#final-reflection)
 
 ---
 
-## Core idea
+## Pitch
 
-Tanglarity explores how AI systems can support:
-
-* cognitive decompression
-* helping close the gap between knowing and doing
-* behavioral awareness
-* organizational clarity
-* stabilization workflows
-* structured decision support
-* qualitative progress tracking
-* adaptive prioritization
-
-This project is designed for people who are not already organized, energized, or emotionally ready to move fast.
+Tanglarity is an AI assisted stabilization app that helps overwhelmed users identify their current phase whether survival, stabilization, organization, growth or somewhere in between to reduce cognitive overload, and move toward realistic action closing the gap between knowing what to do and actually being able to do it.
 
 ---
 
-## Why this is being created
+## Summary
 
-Many people experience moments where:
+Tanglarity is built around the idea that people often know what they should do, but still struggle to act when they are overwhelmed, scattered, frozen, or overloaded.
 
-* stress accumulates
-* priorities collide
-* thoughts feel tangled
-* decisions become exhausting
-* information overload increases
-* tasks pile up faster than action
-* emotional pressure reduces clarity
-* avoidance and paralysis grow
+Stability AI is the first working module inside Tanglarity. It uses a calming interface, structured inputs, stabilization phases, progress sliders, and constrained AI style responses to help users slow down and identify one manageable next step.
 
-Modern productivity systems often assume users already have:
-
-* focus
-* organization
-* energy
-* emotional bandwidth
-* decision capacity
-* stability
-
-Tanglarity was created around the idea that many people do not start there.
-
-Instead of pushing users harder, the system attempts to:
-
-* slow overwhelm
-* reduce cognitive saturation
-* organize pressure points
-* narrow focus
-* identify realistic next actions
-* support stabilization before optimization
+The project is designed to help users understand not only the phases themselves, but how each phase builds upon the next. It intentionally avoids skipping stabilization simply to chase productivity because instability often creates cycles of overwhelm, avoidance, and unfinished systems.
 
 ---
 
-## Backstory & inspiration
+## Live Demo
 
-The idea developed from observing how often people:
+https://huggingface.co/spaces/LindseyB1/tanglarity-stability-ai
 
-* know what they should do
-* understand their problems intellectually
-* still struggle to act consistently
+---
 
-The issue was not always lack of knowledge.
-Often the issue was:
+## Demo Preview
 
-* overload
-* fear
-* emotional exhaustion
-* too many competing priorities
-* lack of structure
-* excessive information
+Add GIF or screenshot files to the repository and update filenames below.
+
+![Tanglarity Welcome Experience](tanglarity-demo_2.gif)
+
+![Tanglarity Stability AI Workflow](tanglarity-demo_1.gif)
+
+---
+
+## Problem Being Solved
+
+Many productivity systems assume users already have focus, organization, energy, and emotional bandwidth.
+
+Tanglarity is designed for situations where priorities collide, thoughts feel tangled, and the next step feels unclear.
+
+Instead of pushing users harder, the system attempts to reduce pressure, narrow focus, and support stabilization before optimization.
+
+The project focuses on problems such as:
+
+* cognitive overload
 * decision fatigue
-* cognitive chaos
-
-This project evolved around one core idea:
-
-awareness alone does not automatically create action.
-
-Tanglarity explores how AI workflows might help bridge the gap between knowing and doing.
-
----
-
-## The gap between knowing and doing
-
-This is the space between knowing what should be done and actually being able to do it.
-
-This became the central problem for the first Tanglarity module.
-
-The project recognizes that many people:
-
-* already know what actions may help them
-* still feel unable to execute consistently
-
-The gap is often caused by:
-
-* overload
-* avoidance
 * competing priorities
 * emotional flooding
-* fear
-* exhaustion
-* paperwork saturation
-* cognitive chaos
-* lack of prioritization
-* uncertainty
+* organizational chaos
+* overwhelm
+* unclear next steps
+* difficulty moving from awareness into action
 
 ---
 
-## Stability AI
+## Intended Audience
 
-Stability AI is the first working module inside the Tanglarity platform.
+Tanglarity is designed for users who may feel:
 
-It is a stabilization-focused action gap assistant designed to help overwhelmed users:
-
-* identify their current phase
-* reduce cognitive overload
-* narrow focus
-* generate realistic next actions
-* pause unnecessary escalation
-* regain clarity and forward movement
-
-Stability AI is intentionally constrained. It is not:
-
-* therapy
-* diagnosis
-* legal advice
-* emergency response
-* crisis intervention
-* unrestricted emotional dependency
-* a replacement for licensed professionals
-
----
-
-## The four phases
-
-The user is guided through one of four stabilization phases.
-
-### 1. Survival
-
-The user feels:
-
+* overwhelmed
 * frozen
-* reactive
-* overloaded
 * emotionally flooded
-* exhausted
-* unable to think clearly
+* mentally scattered
+* unable to prioritize
+* unsure where to begin
 
-The system prioritizes:
+The intended audience is not someone who already feels fully organized and ready to move quickly.
 
-* decompression
-* stabilization
-* reducing input
+The system is intentionally designed for users who need clarity, stabilization, and reduced pressure first.
+
+---
+
+## How To Use The App
+
+1. Open the live app.
+2. Watch the calming welcome screen.
+3. Click “Enter Stability AI.”
+4. Review the Quick Phase Guide.
+5. Complete the overload, clarity, and readiness sliders.
+6. Review the suggested stabilization phase.
+7. Describe one current pressure point.
+8. Choose the type of support needed.
+9. Click “Generate Stability Plan.”
+10. Review the generated response including next actions, grounding reminders, and pause guidance.
+
+---
+
+## Stabilization Phases
+
+Tanglarity uses four stabilization phases to help match the response to the user’s current level of overwhelm, readiness, and clarity.
+
+### Survival
+
+The user may feel overwhelmed, frozen, reactive, or emotionally flooded.
+
+The system focuses on:
+
+* reducing pressure
 * narrowing focus
-* immediate pressure reduction
+* reducing input
+* identifying one safe next step
 
-### 2. Stabilization
+### Stabilization
 
-The user can:
+The user may be able to complete small actions but still needs structure.
 
-* complete small actions
-* begin regaining structure
-* tolerate limited planning
+The system focuses on:
 
-The system prioritizes:
-
-* rhythm
 * grounding
-* small routines
-* manageable action sizing
+* manageable routines
 * reduced complexity
+* rebuilding consistency
 
-### 3. Organization
+### Organization
 
-The user is ready to:
+The user may be ready to sort tasks, organize schedules, and prioritize responsibilities.
 
-* organize schedules
-* sort tasks
-* manage appointments
-* structure routines
-* prioritize systems
-* reduce backlog pressure
+The system focuses on:
 
-The system prioritizes:
-
-* categorization
 * structure
-* prioritization
+* categorization
 * workflow organization
 * manageable planning
 
-### 4. Growth
+### Growth
 
-The user is stable enough to:
+The user may be stable enough to build habits, improve systems, reflect, and plan forward.
 
-* reflect
-* improve systems
-* build consistency
-* strengthen habits
-* plan forward
+The system focuses on:
 
-The system prioritizes:
-
-* long term growth
-* system refinement
 * consistency
-* momentum tracking
-* forward planning
+* momentum
+* sustainable progress
+* long term growth
 
 ---
 
-## Short quiz
+## Current Features
 
-The Stability AI module begins with a short stabilization quiz.
-
-The purpose is to:
-
-* identify overload level
-* estimate stabilization phase
-* understand the primary pressure lane
-* identify what type of support is most appropriate
-
-Possible quiz topics include:
-
-* current stress level
-* difficulty concentrating
-* ability to complete tasks
-* emotional overload
-* organizational backlog
-* sleep/exhaustion
-* avoidance patterns
-* competing priorities
-* clarity level
-* decision fatigue
-
-The quiz is intentionally short to avoid increasing overwhelm.
-
----
-
-## How it works
-
-The user:
-
-1. completes the stabilization quiz
-2. selects what feels hardest right now
-3. enters one current situation or pressure point
-4. chooses the desired support type
-
-The AI then generates:
-
-* stabilization phase
-* current pressure point
-* one priority lane
-* one or two realistic next actions
-* what to pause or avoid
-* grounding reminder
-* optional reflection prompt
-
-Outputs are intentionally constrained to reduce cognitive saturation.
-
----
-
-## When action isn’t the right move
-
-Tanglarity also helps users recognize when the best support is to do less, not more.
-
-The project challenges the assumption that all inaction is failure.
-
-Sometimes the most stabilizing move is:
-
-* reducing input
-* narrowing focus
-* gathering information first
-* delaying escalation
-* organizing before reacting
-* pausing noncritical decisions
-* sleeping before major action
-* reducing chaos instead of increasing output
-
-The AI attempts to recognize when reducing pressure is more helpful than increasing demands.
-
----
-
-## Progress tracking
-
-The platform includes:
-
-* progress indicators
-* stabilization checkpoints
-* qualitative tracking
-* momentum markers
-* readiness indicators
-
-One visual concept is a moving progress path between current state and desired stabilized state.
-
-The system does not measure perfection. It measures:
-
-* reduced overwhelm
-* improved clarity
-* increased consistency
-* manageable forward movement
-* stabilization progress over time
-
-Potential indicators include:
-
-* readiness score
-* clarity score
-* overload score
-* momentum score
-* consistency checkpoints
-
-The purpose is visibility and progress awareness, not judgment.
-
----
-
-## Current features
-
-The current features include:
-
+* calming welcome screen
+* visual onboarding media
+* Quick Phase Guide
 * stabilization quiz
-* phase identification
-* structured AI workflow
-* action gap reduction
+* overload, clarity, and readiness sliders
+* suggested phase logic
+* progress tracking
+* pressure point input
+* support type selection
+* structured Stability AI response
+* realistic next actions
 * grounding reminders
-* progress/status indicators
-* qualitative checkpoints
-* strategic non-action recognition
-* one or two next actions
 * reflection prompts
-* constrained outputs
+* strategic pause guidance
 
 ---
 
-## How the AI is guided
+## Prompt Engineering
 
-The system prompt intentionally:
+The app uses deliberate prompt design to avoid generic chatbot behavior.
 
-* constrains outputs
-* limits recommendations
-* reduces overload
-* avoids therapy language
-* avoids diagnosis
-* uses plain language
-* sizes actions appropriately
-* prioritizes stabilization before optimization
-* recognizes overload states
-* supports strategic non-action
+The goal is not to generate large amounts of advice. The goal is to create calm, structured, phase appropriate guidance.
 
-The workflow evolved through multiple iterations to reduce:
+Prompt engineering techniques used:
 
-* generic chatbot behavior
-* excessive advice
-* emotional flooding
-* unrealistic productivity demands
+* role prompting
+* structured outputs
+* grounding inputs
+* constrained responses
+* phase based logic
+* output limitation
+* plain language prompting
+* strategic pause guidance
+* iterative refinement
+
+These techniques were chosen to keep the system stabilizing instead of overwhelming.
 
 ---
 
-## Technologies used
+## System Prompt
+
+```text
+You are Stability AI, a calm and structured assistant inside the Tanglarity platform.
+
+Your purpose is to help overwhelmed users reduce cognitive overload and move toward one manageable next action.
+
+You do not diagnose, provide therapy, give legal advice, or act as emergency support.
+
+Use plain language.
+
+Keep responses short, structured, grounded, and stabilizing.
+
+Focus on the user's selected phase, pressure point, and support type.
+
+Prioritize stabilization before productivity.
+
+Avoid overwhelming the user with too many recommendations.
+
+Support strategic non action when reducing pressure would be more stabilizing than adding tasks.
+```
+
+---
+
+## Grounding
+
+The model is grounded through structured user input rather than unrestricted conversation.
+
+Grounding elements include:
+
+* selected stabilization phase
+* overload level
+* clarity level
+* readiness level
+* pressure point input
+* support type selection
+* predefined response structure
+* phase based response logic
+
+These inputs help keep responses focused, manageable, and relevant to the user’s current state.
+
+---
+
+## Build Log / Development Timeline
+
+### Initial Concept
+
+The project originally explored AI systems for emotional overload, organization, workflow management, and decision support.
+
+Early versions were too broad and risked becoming generic chatbot systems.
+
+### Scope Narrowing
+
+The project narrowed into a stabilization focused tool centered around helping users move from overwhelm toward one manageable next action.
+
+This improved clarity, workflow structure, and deployment feasibility.
+
+### Stabilization Phase System Added
+
+The four phase system was added:
+
+1. Survival
+2. Stabilization
+3. Organization
+4. Growth
+
+This improved response consistency and allowed the app to adapt guidance based on user readiness and overload level.
+
+### Constrained Output Structure Added
+
+Early versions generated too much advice and increased cognitive overload.
+
+The response structure was redesigned to intentionally limit output and instead focus on:
+
+* one or two next actions
+* grounding reminders
+* strategic pause guidance
+* manageable movement
+
+### Visual and Progress Features Added
+
+The project later added:
+
+* calming onboarding videos
+* progress sliders
+* stabilization scoring
+* visual grounding elements
+
+These additions improved the emotional tone and made the app feel more intentional and immersive.
+
+---
+
+## Evaluation
+
+### What “Good” Meant
+
+A successful Stability AI response should:
+
+* reduce overwhelm
+* stay calm and clear
+* avoid cognitive flooding
+* generate realistic next actions
+* match the user’s stabilization phase
+* remain manageable and grounded
+
+### How I Tested
+
+The system was tested using example pressure points such as:
+
+* “I have too many assignments and do not know where to begin.”
+* “My house feels overwhelming and I feel frozen.”
+* “I feel overloaded and cannot prioritize.”
+* “I need structure but not pressure.”
+
+### What I Found
+
+The strongest responses were:
+
+* short
+* stabilizing
+* realistic
+* phase appropriate
+* action constrained
+
+The system performed best when users clearly identified the main pressure point.
+
+The constrained response structure improved consistency and reduced overwhelming outputs compared to earlier unrestricted versions.
+
+---
+
+## Honest Limits
+
+Tanglarity is not:
+
+* therapy
+* diagnosis
+* medical care
+* legal advice
+* emergency support
+* crisis intervention
+
+Current limitations include:
+
+* no long term memory
+* no retrieval augmented generation
+* limited personalization
+* no saved user history
+* no user accounts
+* depends heavily on user input quality
+* cannot replace professional support
+
+---
+
+## Originality and Ownership
+
+Tanglarity intentionally avoids traditional productivity optimization framing.
+
+The system is built around the idea that users often need stabilization before optimization.
+
+The name Tanglarity combines the feeling of being tangled with the goal of clarity.
+
+Stability AI was designed as the first module because stabilization is treated as the foundation before deeper planning, organization, or growth.
+
+The project evolved through repeated experimentation, refinement, prompt engineering, workflow redesign, and testing rather than a single generated output.
+
+---
+
+## AI Tools and Technologies Used
 
 * Python
 * Streamlit
-* OpenAI API
 * GitHub
-* VS Code
+* GitHub Codespaces
+* Hugging Face Spaces
 * GitHub Copilot
+* Canva
+* OpenAI assisted prompting and development support
 
 ---
 
-## Future vision
+## Future Improvements
 
-Future Tanglarity modules may include:
+Future versions may include:
 
-* adaptive workflow systems
-* memory-based progress tracking
-* organizational dashboards
-* behavioral pattern analytics
-* retrieval-augmented grounding
-* structured decision support
-* document organization systems
-* personalized stabilization analytics
-* long term qualitative trend mapping
+* saved progress
+* optional journaling
+* improved phase scoring
+* adaptive stabilization workflows
+* ambient grounding audio
+* personalized stabilization tracking
+* retrieval augmented grounding
 
 ---
 
-## Final framing
+## Final Reflection
 
-Tanglarity is the broader AI platform.
-Stability AI is the first working module.
+Tanglarity is designed to help overwhelmed users reduce chaos, identify their current phase, and take one manageable next step.
 
-The system explores whether intentionally constrained AI workflows can help overwhelmed users reduce cognitive overload, regain clarity, and move from awareness toward realistic action without increasing chaos.
+The project demonstrates how prompting, grounding, structure, iteration, and constrained outputs can shape an AI system into something more intentional and stabilizing than a generic chatbot.
