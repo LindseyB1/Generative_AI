@@ -273,33 +273,144 @@ The phase system significantly improved:
 
 ---
 
-# May 17, 2026 — Final Direction Consolidation
+## May 17, 2026 — Interface Refinement, Workflow Expansion, README Structuring, and Public Deployment
 
 ### Prompt
 
-"I want to include some back story too and say for clarity and peace this is such crucial to impact all in a positive way."
+“Can we have the button first with a calming message that says Welcome to Tanglarity Stability AI Close the gap between knowing what to do and actually being able to do it. Empowering You!”
 
 ### Response
 
-The final system direction became:
+The onboarding experience evolved from a simple interface into a guided stabilization entry experience before the user enters the main workflow.
 
-Tanglarity explores whether constrained AI workflows can help users reduce cognitive overload, regain clarity, and move from awareness toward manageable action without increasing cognitive chaos.
+The application flow was updated to include:
 
-### Finalized Core Themes
+* a welcome screen
+* calming introductory messaging
+* an “Enter Stability AI” button
+* a staged transition into the stabilization system
+
+This improved emotional pacing and helped frame the purpose of the app before interaction begins.
+
+---
+
+### Prompt
+
+“Can we also make the website a calming color for the background? Or for Tanglarity and Stability AI”
+
+### Response
+
+The interface styling was redesigned to better match the stabilization concept and reduce visual harshness.
+
+The visual system was updated with:
+
+* calming dark blue gradient backgrounds
+* softer visual contrast
+* rounded interface elements
+* styled buttons
+* improved visual consistency
+
+This helped align the interface tone with the project goal of reducing overwhelm instead of increasing stimulation.
+
+---
+
+### Prompt
+
+“What else? Can we do a slider button here for tracking progress of goals and button icons for additional information like the quiz to know what phase you might be in?”
+
+### Response
+
+The app expanded beyond static responses and added interactive stabilization tracking systems.
+
+This added:
+
+* overload sliders
+* clarity sliders
+* readiness sliders
+* stabilization progress tracking
+* suggested phase logic
+* expanded Quick Phase Guide functionality
+* interactive feedback systems
+
+This helped connect user inputs directly to stabilization phase recommendations and response generation.
+
+---
+
+### Prompt
+
+“Can we put this one on the first page tanglarity-demo_2 and the other one on the second page?”
+
+### Response
+
+The onboarding workflow evolved into a staged visual flow using separate media assets across different app screens.
+
+The final structure included:
+
+* `tanglarity-demo_2.mp4` on the welcome screen
+* `tanglarity-demo_1.mp4` on the main Stability AI workflow screen
+
+This improved interface immersion and created a more intentional onboarding experience.
+
+---
+
+### Prompt
+
+“Make this look more for GitHub please.”
+
+### Response
+
+The README structure was redesigned into a cleaner GitHub style format using:
+
+* Markdown headers
+* section hierarchy
+* table of contents
+* improved spacing
+* cleaner navigation
+* reduced text density
+* separated development log structure
+
+This improved readability and aligned the repository structure more closely with standard GitHub project formatting.
+
+---
+
+### Prompt
+
+“How do I deploy on Hugging Face Spaces?”
+
+### Response
+
+The project successfully transitioned from a local prototype into a publicly deployed AI application using Hugging Face Spaces and Streamlit.
+
+Deployment work included:
+
+* selecting Streamlit deployment
+* configuring Hugging Face Spaces
+* selecting CPU Basic hardware
+* setting public visibility
+* uploading project files
+* removing conflicting template files
+* adding required Hugging Face README metadata
+* troubleshooting deployment configuration errors
+* validating public deployment functionality
+
+---
+
+## Finalized Core Themes
 
 * cognitive clarity
 * stabilization before optimization
-* action gap reduction
 * constrained AI behavior
-* qualitative progress tracking
 * structured workflows
 * realistic action sizing
 * strategic non action
 * overload aware design
+* calming user experience
+* interactive stabilization tracking
+* public deployment accessibility
 
 ---
 
-# Prompt Engineering Techniques Used
+## Prompt Engineering Techniques Used
 
 The project intentionally used:
 
@@ -307,49 +418,55 @@ The project intentionally used:
 * structured outputs
 * grounding inputs
 * constrained responses
-* workflow engineering
 * phase based logic
 * iterative refinement
 * prompt narrowing
-* refusal boundaries
-* qualitative evaluation
 * output limitation
+* qualitative evaluation
 
 ---
 
-# Major Iterative Improvements
+## Major Iterative Improvements
 
-## Early Failures
+### Early Issues
 
-* outputs too broad
-* excessive recommendations
-* emotional flooding
-* inconsistent structure
-* generic productivity language
+* outputs felt too broad
+* responses generated too many recommendations
+* the workflow risked becoming a generic chatbot
+* the interface initially lacked calming visual structure
+* the onboarding flow felt abrupt
+* the README lacked GitHub style organization
+* deployment required troubleshooting and restructuring
 
-## Refinements Added
+### Refinements Added
 
 * stabilization phases
-* constrained outputs
-* action limits
-* strategic non action
+* Quick Phase Guide
+* overload, clarity, and readiness sliders
+* suggested phase logic
+* progress tracking
+* constrained next actions
 * grounding reminders
-* qualitative checkpoints
-* overload aware logic
-* structured formatting
+* strategic pause guidance
+* calming interface styling
+* staged onboarding flow
+* visual onboarding media
+* GitHub style documentation structure
+* public Hugging Face deployment
 
 ---
 
-# Intellectual Ownership
+## Intellectual Ownership
 
-The project evolved through:
+The project evolved through repeated refinement, interface redesign, workflow restructuring, prompt experimentation, deployment troubleshooting, documentation cleanup, and testing.
 
-* iterative brainstorming
-* repeated scope correction
-* pushback against generic framing
-* refinement of workflow structure
-* prompt engineering experimentation
-* conceptual narrowing
-* stabilization focused redesign
+The final project reflects intentional engineering decisions related to:
 
-The final project reflects intentional engineering decisions rather than a single generated AI output.
+* onboarding flow
+* stabilization logic
+* prompt structure
+* grounding systems
+* response constraints
+* interface tone
+* deployment architecture
+* GitHub project organization
