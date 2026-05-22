@@ -1,4 +1,19 @@
+import os
 import streamlit as st
+from openai import OpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+
+def load_system_prompt():
+    with open("Prompts/system_prompt.md", "r", encoding="utf-8") as file:
+        return file.read()
+
+
+system_prompt = load_system_prompt()
 
 st.set_page_config(
     page_title="Tanglarity - Stability AI",
@@ -50,17 +65,13 @@ h1, h2, h3 {
 if "intro_done" not in st.session_state:
     st.session_state.intro_done = False
 
-# INTRO SCREEN
 if not st.session_state.intro_done:
-
     st.video("tanglarity-demo_2.mp4")
 
     st.title("Welcome to Tanglarity")
     st.subheader("Stability AI")
 
-    st.caption(
-        "Close the gap between knowing what to do and actually being able to do it."
-    )
+    st.caption("Close the gap between knowing what to do and actually being able to do it.")
 
     st.markdown("### Empowering You")
 
@@ -74,34 +85,19 @@ if not st.session_state.intro_done:
         st.session_state.intro_done = True
         st.rerun()
 
-# MAIN APP
 else:
-
     st.title("Tanglarity")
     st.subheader("Stability AI")
 
-    st.caption(
-        "Close the gap between knowing what to do and actually being able to do it."
-    )
+    st.caption("Close the gap between knowing what to do and actually being able to do it.")
 
     st.markdown("---")
 
     with st.expander("🧭 Quick Phase Guide", expanded=True):
-        st.write(
-            "Survival: overwhelmed, frozen, reactive, or emotionally flooded."
-        )
-
-        st.write(
-            "Stabilization: able to do small actions but still needs structure."
-        )
-
-        st.write(
-            "Organization: ready to sort tasks, schedules, and priorities."
-        )
-
-        st.write(
-            "Growth: stable enough to build habits, reflect, and plan forward."
-        )
+        st.write("Survival: overwhelmed, frozen, reactive, or emotionally flooded.")
+        st.write("Stabilization: able to do small actions but still needs structure.")
+        st.write("Organization: ready to sort tasks, schedules, and priorities.")
+        st.write("Growth: stable enough to build habits, reflect, and plan forward.")
 
     st.video("tanglarity-demo_1.mp4")
 
@@ -130,16 +126,12 @@ else:
         5
     )
 
-    # PHASE SUGGESTION LOGIC
     if stress_level >= 8 or energy_level <= 2:
         suggested_phase = "Survival"
-
     elif stress_level >= 6 or clarity_level <= 4:
         suggested_phase = "Stabilization"
-
     elif clarity_level >= 5 and energy_level >= 4:
         suggested_phase = "Organization"
-
     else:
         suggested_phase = "Growth"
 
@@ -152,12 +144,7 @@ else:
     phase = st.selectbox(
         "Select Stabilization Phase",
         ["Survival", "Stabilization", "Organization", "Growth"],
-        index=[
-            "Survival",
-            "Stabilization",
-            "Organization",
-            "Growth"
-        ].index(suggested_phase)
+        index=["Survival", "Stabilization", "Organization", "Growth"].index(suggested_phase)
     )
 
     st.markdown("### What feels hardest right now?")
@@ -205,121 +192,84 @@ else:
     )
 
     progress_average = int(
-        (
-            clarity_score
-            + readiness_score
-            + (10 - overload_score)
-        ) / 3 * 10
+        (clarity_score + readiness_score + (10 - overload_score)) / 3 * 10
     )
 
     st.progress(progress_average)
 
-    st.caption(
-        f"Stabilization progress estimate: {progress_average}%"
-    )
+    st.caption(f"Stabilization progress estimate: {progress_average}%")
 
     st.markdown("---")
 
     if st.button("✨ Generate Stability Plan"):
 
-        st.markdown("## Stability AI Response")
+        if not os.getenv("OPENAI_API_KEY"):
+            st.error("Missing OPENAI_API_KEY. Add it to your local .env file or Hugging Face Repository Secrets.")
 
-        st.markdown("### Current Phase")
-        st.write(phase)
-
-        st.markdown("### Current Pressure Point")
-
-        st.write(
-            pressure_point
-            if pressure_point
-            else "No pressure point entered yet."
-        )
-
-        st.markdown("### Support Type")
-        st.write(support_type)
-
-        st.markdown("### Priority Lane")
-
-        if phase == "Survival":
-
-            st.write(
-                "Reduce input, lower pressure, and focus only on the safest next step."
-            )
-
-        elif phase == "Stabilization":
-
-            st.write(
-                "Create a small rhythm and complete one manageable action."
-            )
-
-        elif phase == "Organization":
-
-            st.write(
-                "Sort the pressure points into categories before trying to solve all of them."
-            )
+        elif not pressure_point.strip():
+            st.warning("Please describe one current pressure point.")
 
         else:
+            user_message = f"""
+Current stabilization phase:
+{phase}
 
-            st.write(
-                "Use current stability to build consistency and long term systems."
-            )
+Pressure point:
+{pressure_point}
 
-        st.markdown("### One or Two Next Actions")
+Support type requested:
+{support_type}
 
-        if phase == "Survival":
+Overload score:
+{overload_score}/10
 
-            st.write(
-                "1. Pause noncritical decisions for now."
-            )
+Clarity score:
+{clarity_score}/10
 
-            st.write(
-                "2. Identify one task that would reduce the most pressure today."
-            )
+Readiness score:
+{readiness_score}/10
 
-        elif phase == "Stabilization":
+Generate:
+- Current Phase Summary
+- Current Pressure Point
+- One Priority Lane
+- One or Two Next Actions
+- What To Pause
+- Grounding Reminder
+- Optional Reflection Question
 
-            st.write(
-                "1. Choose one small task that can be completed in under 15 minutes."
-            )
+Keep the response:
+- calm
+- concise
+- stabilizing
+- non overwhelming
+- structured
+- realistic
 
-            st.write(
-                "2. Remove one competing input or distraction."
-            )
+Avoid:
+- therapy
+- diagnosis
+- legal advice
+- crisis language
+"""
 
-        elif phase == "Organization":
+            with st.spinner("Generating Stability Plan..."):
+                try:
+                    response = client.chat.completions.create(
+                        model="gpt-4o-mini",
+                        messages=[
+                            {"role": "system", "content": system_prompt},
+                            {"role": "user", "content": user_message}
+                        ],
+                        temperature=0.4
+                    )
 
-            st.write(
-                "1. List the top three pressure points."
-            )
+                    ai_output = response.choices[0].message.content
 
-            st.write(
-                "2. Sort them into urgent, important, and can wait."
-            )
+                    st.markdown("## Stability AI Response")
+                    st.markdown(ai_output)
 
-        else:
-
-            st.write(
-                "1. Identify one habit or system to strengthen."
-            )
-
-            st.write(
-                "2. Track one small win today."
-            )
-
-        st.markdown("### What To Pause")
-
-        st.write(
-            "Pause anything that adds pressure without helping the current priority."
-        )
-
-        st.markdown("### Grounding Reminder")
-
-        st.write(
-            "Clarity often improves after reducing chaos, not increasing pressure."
-        )
-
-        st.markdown("### Optional Reflection")
-
-        st.write(
-            "What would make today feel 10% more manageable?"
-        )
+                except Exception as e:
+                    st.error("The AI response could not be generated.")
+                    st.write(e)
+                    
