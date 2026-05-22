@@ -5,8 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
 
 def load_system_prompt():
     with open("Prompts/system_prompt.md", "r", encoding="utf-8") as file:
@@ -22,44 +20,119 @@ st.set_page_config(
 )
 
 st.markdown("""
+
 <style>
+
 .stApp {
     background: linear-gradient(180deg, #0f1722 0%, #16202d 45%, #1d2a36 100%);
-    color: #f1f5f9;
+    color: white;
 }
 
-h1, h2, h3 {
-    color: #e2e8f0;
+/* Main Headers */
+h1 {
+    color: white !important;
+    font-size: 35px !important;
+    font-weight: 700 !important;
 }
 
+/* Secondary Headers */
+h2, h3 {
+    color: white !important;
+    font-size: 30px !important;
+    font-weight: 600 !important;
+}
+
+/* ALL GENERAL TEXT */
+p, label, div, span {
+    color: white !important;
+    font-size: 20px !important;
+}
+
+/* Captions */
+.stCaption {
+    color: #dbeafe !important;
+    font-size: 18px !important;
+}
+
+/* Force Streamlit caption text to white */
+[data-testid="stCaptionContainer"] p {
+    color: white !important;
+    font-size: 20px !important;
+}
+
+[data-testid="stCaptionContainer"] {
+    color: white !important;
+}
+
+/* Text Areas */
 .stTextArea textarea {
-    background-color: #243241;
-    color: white;
-    border-radius: 12px;
+    background-color: #243241 !important;
+    color: white !important;
+    border-radius: 12px !important;
+    font-size: 20px !important;
+    border: 1px solid #5da6bd !important;
 }
 
+/* Select Boxes */
 .stSelectbox div[data-baseweb="select"] {
-    background-color: #243241;
-    border-radius: 12px;
+    background-color: #243241 !important;
+    border-radius: 12px !important;
+    color: white !important;
+    font-size: 20px !important;
 }
 
+/* Buttons */
 .stButton button {
-    background-color: #4f8ea3;
-    color: white;
-    border-radius: 12px;
-    border: none;
-    padding: 0.6rem 1rem;
+    background-color: #4f8ea3 !important;
+    color: white !important;
+    border-radius: 12px !important;
+    border: none !important;
+    padding: 0.8rem 1.2rem !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
 }
 
 .stButton button:hover {
-    background-color: #5da6bd;
+    background-color: #5da6bd !important;
 }
 
-.stSlider {
-    padding-top: 10px;
-    padding-bottom: 10px;
+/* Slider labels */
+.stSlider label {
+    color: white !important;
+    font-size: 20px !important;
 }
+
+/* Expander */
+.streamlit-expanderHeader {
+    font-size: 22px !important;
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+/* Success Messages */
+.stSuccess {
+    font-size: 20px !important;
+}
+
+/* Info Boxes */
+.stInfo {
+    font-size: 20px !important;
+    color: white !important;
+}
+
+/* Markdown Lists */
+ul, li {
+    font-size: 20px !important;
+    color: white !important;
+}
+
+/* Progress Bar Text */
+.stProgress > div > div > div > div {
+    background-color: #5da6bd !important;
+}
+
 </style>
+
 """, unsafe_allow_html=True)
 
 if "intro_done" not in st.session_state:
@@ -68,10 +141,42 @@ if "intro_done" not in st.session_state:
 if not st.session_state.intro_done:
     st.video("tanglarity-demo_2.mp4")
 
-    st.title("Welcome to Tanglarity")
-    st.subheader("Stability AI")
+    st.markdown("""
 
-    st.caption("Close the gap between knowing what to do and actually being able to do it.")
+<h1 style='
+    text-align: center;
+    color: white;
+    font-size: 72px;
+    font-weight: 900;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+'>
+Welcome to Tanglarity
+</h1>
+
+<h2 style='
+    text-align: center;
+    color: #dbeafe;
+    font-size: 46px;
+    font-weight: 600;
+    margin-top: 5px;
+'>
+Stability AI
+</h2>
+""", unsafe_allow_html=True)
+
+    st.markdown("""
+
+<p style='
+    text-align: center;
+    color: white;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 30px;
+'>
+Close the gap between knowing what to do and actually being able to do it.
+</p>
+""", unsafe_allow_html=True)
 
     st.markdown("### Empowering You")
 
@@ -86,10 +191,68 @@ if not st.session_state.intro_done:
         st.rerun()
 
 else:
-    st.title("Tanglarity")
-    st.subheader("Stability AI")
+    st.markdown("""
 
-    st.caption("Close the gap between knowing what to do and actually being able to do it.")
+<h1 style='
+    color: white;
+    font-size: 64px;
+    font-weight: 900;
+    margin-bottom: 0;
+    line-height: 1.0;
+'>
+Tanglarity
+</h1>
+
+<h2 style='
+    color: #dbeafe;
+    font-size: 42px;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 20px;
+'>
+Stability AI
+</h2>
+
+<p style='
+    color: white;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 35px;
+'>
+Close the gap between knowing what to do and actually being able to do it.
+</p>
+""", unsafe_allow_html=True)
+    st.markdown("""
+
+<h1 style='
+    color: white;
+    font-size: 72px;
+    font-weight: 900;
+    margin-bottom: 0;
+    line-height: 1.0;
+'>
+Welcome to Tanglarity
+</h1>
+
+<h2 style='
+    color: #dbeafe;
+    font-size: 46px;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 25px;
+'>
+Stability AI
+</h2>
+
+<p style='
+    color: white;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 35px;
+'>
+Close the gap between knowing what to do and actually being able to do it.
+</p>
+""", unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -197,19 +360,37 @@ else:
 
     st.progress(progress_average)
 
-    st.caption(f"Stabilization progress estimate: {progress_average}%")
+    st.markdown(f"""
+
+<p style='
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 25px;
+'>
+Stabilization progress estimate: {progress_average}%
+</p>
+""", unsafe_allow_html=True)
 
     st.markdown("---")
 
     if st.button("✨ Generate Stability Plan"):
 
-        if not os.getenv("OPENAI_API_KEY"):
-            st.error("Missing OPENAI_API_KEY. Add it to your local .env file or Hugging Face Repository Secrets.")
+        api_key = os.getenv("OPENAI_API_KEY")
+
+        if not api_key:
+            st.error(
+                "Missing OPENAI_API_KEY. Add it to your local .env file or Hugging Face Repository Secrets."
+            )
 
         elif not pressure_point.strip():
             st.warning("Please describe one current pressure point.")
 
         else:
+            client = OpenAI(api_key=api_key)
+
             user_message = f"""
 Current stabilization phase:
 {phase}
@@ -229,7 +410,9 @@ Clarity score:
 Readiness score:
 {readiness_score}/10
 
-Generate:
+Generate a custom response that clearly references the user's actual pressure point.
+
+Return these exact sections:
 - Current Phase Summary
 - Current Pressure Point
 - One Priority Lane
@@ -238,22 +421,15 @@ Generate:
 - Grounding Reminder
 - Optional Reflection Question
 
-Keep the response:
-- calm
-- concise
-- stabilizing
-- non overwhelming
-- structured
-- realistic
-
-Avoid:
-- therapy
-- diagnosis
-- legal advice
-- crisis language
+Rules:
+- Make the response specific to the pressure point.
+- Do not use generic placeholder wording.
+- Keep the response calm, concise, stabilizing, non overwhelming, structured, and realistic.
+- Avoid therapy, diagnosis, legal advice, or crisis language.
+- If the pressure point is unusual or fictional, still respond to the actual details calmly.
 """
 
-            with st.spinner("Generating Stability Plan..."):
+            with st.spinner("Generating Stability Plan with OpenAI..."):
                 try:
                     response = client.chat.completions.create(
                         model="gpt-4o-mini",
@@ -261,15 +437,15 @@ Avoid:
                             {"role": "system", "content": system_prompt},
                             {"role": "user", "content": user_message}
                         ],
-                        temperature=0.4
+                        temperature=0.7
                     )
 
                     ai_output = response.choices[0].message.content
 
+                    st.success("Live AI response generated from OpenAI.")
                     st.markdown("## Stability AI Response")
                     st.markdown(ai_output)
 
                 except Exception as e:
                     st.error("The AI response could not be generated.")
                     st.write(e)
-                    
