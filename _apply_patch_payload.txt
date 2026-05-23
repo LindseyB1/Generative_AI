@@ -1,3 +1,0 @@
-*** Begin Patch
-*** Delete File: /workspaces/Generative_AI/app.py
-*** Add File: /workspaces/Generative_AI/app.py
