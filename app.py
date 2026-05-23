@@ -20,123 +20,185 @@ st.set_page_config(
 )
 
 st.markdown("""
-
 <style>
-
 .stApp {
     background: linear-gradient(180deg, #0f1722 0%, #16202d 45%, #1d2a36 100%);
     color: white;
 }
 
-/* Main Headers */
-h1 {
-    color: white !important;
-    font-weight: 700 !important;
+.block-container {
+    max-width: 1000px;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
 }
 
-/* Secondary Headers */
-h2, h3 {
-    color: white !important;
-    font-weight: 600 !important;
+h1, h2, h3, h4, h5, h6, p, div, span, label {
+    text-align: left !important;
 }
 
 .hero-title {
-    font-size: 64px !important;
-    line-height: 1.0 !important;
-    margin-bottom: 0.2rem !important;
+    color: white !important;
+    font-size: 48px !important;
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+    margin-bottom: 16px !important;
 }
 
 .hero-subtitle {
+    color: white !important;
     font-size: 40px !important;
-    color: #dbeafe !important;
-    margin-top: 0.2rem !important;
-    margin-bottom: 1.1rem !important;
+    font-weight: 750 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 18px !important;
 }
 
-.hero-description,
-.body-text,
-.caption-text,
-.stInfo,
-.stCaption,
-[data-testid="stCaptionContainer"] p {
+.hero-description {
+    color: white !important;
+    font-size: 35px !important;
+    font-weight: 600 !important;
+    line-height: 1.35 !important;
+    margin-bottom: 36px !important;
+}
+
+.section-title {
+    color: white !important;
+    font-size: 35px !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    margin-top: 28px !important;
+    margin-bottom: 18px !important;
+}
+
+.subsection-title {
+    color: white !important;
+    font-size: 30px !important;
+    font-weight: 750 !important;
+    line-height: 1.25 !important;
+    margin-top: 24px !important;
+    margin-bottom: 16px !important;
+}
+
+.body-text {
     color: white !important;
     font-size: 25px !important;
     line-height: 1.6 !important;
 }
 
-.hero-description {
-    font-size: 31px !important;
-    font-weight: 500 !important;
-    margin-bottom: 2rem !important;
-}
-
-.section-title {
+p, li {
     color: white !important;
-    font-size: 28px !important;
-    font-weight: 700 !important;
-    margin-top: 1.5rem !important;
-    margin-bottom: 0.75rem !important;
+    font-size: 20px !important;
+    line-height: 1.6 !important;
 }
 
-.subtle-text {
-    color: #dbeafe !important;
-    font-size: 18px !important;
+label,
+[data-testid="stWidgetLabel"] p {
+    color: white !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+}
+
+.stSelectbox label p {
+    font-size: 15px !important;
+    color: white !important;
+}
+
+.stSelectbox div[data-baseweb="select"] {
+    background-color: #243241 !important;
+    border-radius: 15px !important;
+    color: white !important;
+    font-size: 20px !important;
+    border: 1px solid #5da6bd !important;
+}
+
+.stTextArea textarea {
+    background-color: #243241 !important;
+    color: white !important;
+    border-radius: 15px !important;
+    font-size: 20px !important;
+    border: 1px solid #5da6bd !important;
+}
+
+.stSlider label p,
+.stSlider p,
+.stSlider span {
+    color: white !important;
+    font-size: 20px !important;
+}
+
+.stInfo,
+.stInfo div,
+.stInfo p {
+    color: white !important;
+    font-size: 15px !important;
+}
+
+.streamlit-expanderHeader {
+    color: white !important;
+    font-size: 30px !important;
+    font-weight: 800 !important;
+}
+
+[data-testid="stExpander"] p {
+    color: white !important;
+    font-size: 20px !important;
     line-height: 1.6 !important;
 }
 
 .stButton button {
     background-color: #4f8ea3 !important;
     color: white !important;
-    border-radius: 12px !important;
+    border-radius: 20px !important;
     border: none !important;
-    padding: 0.8rem 1.2rem !important;
-    font-size: 25px !important;
-    font-weight: 600 !important;
+    padding: 1rem 1.6rem !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
 }
 
 .stButton button:hover {
     background-color: #5da6bd !important;
 }
 
-.stSlider label,
-.slider-label {
+.progress-text {
     color: white !important;
-    font-size: 25px !important;
-}
-
-.stTextArea textarea,
-.stSelectbox div[data-baseweb="select"] {
-    background-color: #243241 !important;
-    color: white !important;
-    border-radius: 12px !important;
-    font-size: 18px !important;
-    border: 1px solid #5da6bd !important;
-}
-
-.streamlit-expanderHeader {
-    font-size: 22px !important;
-    color: white !important;
-    font-weight: 600 !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin-top: 18px !important;
+    margin-bottom: 24px !important;
 }
 
 .stSuccess,
-.success-text {
-    font-size: 20px !important;
-    color: #d1fae5 !important;
-}
-
-.stProgress > div > div > div > div {
-    background-color: #5da6bd !important;
-}
-
-.progress-text {
-    font-size: 24px !important;
+.stSuccess div,
+.stSuccess p,
+.stWarning,
+.stWarning div,
+.stWarning p,
+.stError,
+.stError div,
+.stError p {
     color: white !important;
-    font-weight: 700 !important;
+    font-size: 20px !important;
 }
 
-</style>
+h1 {
+    font-size: 48px !important;
+    color: white !important;
+}
 
+h2 {
+    font-size: 40px !important;
+    color: white !important;
+}
+
+h3 {
+    font-size: 30px !important;
+    color: white !important;
+}
+
+hr {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+}
+</style>
 """, unsafe_allow_html=True)
 
 if "intro_done" not in st.session_state:
@@ -146,47 +208,23 @@ if not st.session_state.intro_done:
     st.video("tanglarity-demo_2.mp4")
 
     st.markdown("""
+    <div class="hero-title">Welcome to Tanglarity</div>
+    <div class="hero-subtitle">Stability AI</div>
+    <div class="hero-description">
+    Close the gap between knowing what to do and actually being able to do it.
+    </div>
+    """, unsafe_allow_html=True)
 
-<h1 style='
-    text-align: center;
-    color: white;
-    font-size: 72px;
-    font-weight: 900;
-    margin-bottom: 0;
-    letter-spacing: 1px;
-'>
-Welcome to Tanglarity
-</h1>
-
-<h2 style='
-    text-align: center;
-    color: #dbeafe;
-    font-size: 46px;
-    font-weight: 600;
-    margin-top: 5px;
-'>
-Stability AI
-</h2>
-""", unsafe_allow_html=True)
+    st.markdown(
+        '<div class="section-title">Empowering You</div>',
+        unsafe_allow_html=True
+    )
 
     st.markdown("""
-
-<p style='
-    text-align: center;
-    color: white;
-    font-size: 26px;
-    font-weight: 500;
-    margin-bottom: 30px;
-'>
-Close the gap between knowing what to do and actually being able to do it.
-</p>
-""", unsafe_allow_html=True)
-
-    st.markdown("### Empowering You")
-
-    st.write(
-        "A calm AI assisted space for reducing overwhelm, regaining clarity, and finding one manageable next step."
-    )
+    <div class="body-text">
+    A calm AI assisted space for reducing overwhelm, regaining clarity, and finding one manageable next step.
+    </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -196,19 +234,12 @@ Close the gap between knowing what to do and actually being able to do it.
 
 else:
     st.markdown("""
-
-<h1 class='hero-title'>
-Tanglarity
-</h1>
-
-<h2 class='hero-subtitle'>
-Stability AI
-</h2>
-
-<p class='hero-description'>
-Close the gap between knowing what to do and actually being able to do it.
-</p>
-""", unsafe_allow_html=True)
+    <div class="hero-title">Tanglarity</div>
+    <div class="hero-subtitle">Stability AI</div>
+    <div class="hero-description">
+    Close the gap between knowing what to do and actually being able to do it.
+    </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -222,7 +253,10 @@ Close the gap between knowing what to do and actually being able to do it.
 
     st.markdown("---")
 
-    st.markdown("### Quick Stabilization Quiz")
+    st.markdown(
+        '<div class="subsection-title">Quick Stabilization Quiz</div>',
+        unsafe_allow_html=True
+    )
 
     stress_level = st.slider(
         "How overloaded do things feel right now?",
@@ -258,7 +292,10 @@ Close the gap between knowing what to do and actually being able to do it.
 
     st.markdown("---")
 
-    st.markdown("### What phase feels closest right now?")
+    st.markdown(
+        '<div class="subsection-title">What phase feels closest right now?</div>',
+        unsafe_allow_html=True
+    )
 
     phase = st.selectbox(
         "Select Stabilization Phase",
@@ -266,12 +303,26 @@ Close the gap between knowing what to do and actually being able to do it.
         index=["Survival", "Stabilization", "Organization", "Growth"].index(suggested_phase)
     )
 
-    st.markdown("### What feels hardest right now?")
+    st.markdown(
+        '<div class="subsection-title">What feels hardest right now?</div>',
+        unsafe_allow_html=True
+    )
 
     pressure_point = st.text_area(
         "Describe one current pressure point or situation",
         height=150
     )
+
+    uploaded_file = st.file_uploader(
+        "Optional: Upload a document for added context",
+        type=["txt", "md"]
+    )
+
+    uploaded_context = ""
+
+    if uploaded_file is not None:
+        uploaded_context = uploaded_file.read().decode("utf-8")
+        st.success("Document uploaded and added as context.")
 
     support_type = st.selectbox(
         "What kind of support would help most?",
@@ -287,7 +338,10 @@ Close the gap between knowing what to do and actually being able to do it.
 
     st.markdown("---")
 
-    st.markdown("### Progress Tracking")
+    st.markdown(
+        '<div class="subsection-title">Progress Tracking</div>',
+        unsafe_allow_html=True
+    )
 
     overload_score = st.slider(
         "Overload level",
@@ -316,24 +370,14 @@ Close the gap between knowing what to do and actually being able to do it.
 
     st.progress(progress_average)
 
-    st.markdown(f"""
-
-<p style='
-    text-align: center;
-    color: white;
-    font-size: 28px;
-    font-weight: 700;
-    margin-top: 15px;
-    margin-bottom: 25px;
-'>
-Stabilization progress estimate: {progress_average}%
-</p>
-""", unsafe_allow_html=True)
+    st.markdown(
+        f'<div class="progress-text">Stabilization progress estimate: {progress_average}%</div>',
+        unsafe_allow_html=True
+    )
 
     st.markdown("---")
 
     if st.button("✨ Generate Stability Plan"):
-
         api_key = os.getenv("OPENAI_API_KEY")
 
         if not api_key:
@@ -348,6 +392,9 @@ Stabilization progress estimate: {progress_average}%
             client = OpenAI(api_key=api_key)
 
             user_message = f"""
+Uploaded document context:
+{uploaded_context[:3000]}
+
 Current stabilization phase:
 {phase}
 
@@ -379,6 +426,7 @@ Return these exact sections:
 
 Rules:
 - Make the response specific to the pressure point.
+- Use the uploaded document only as additional context if it is relevant.
 - Do not use generic placeholder wording.
 - Keep the response calm, concise, stabilizing, non overwhelming, structured, and realistic.
 - Avoid therapy, diagnosis, legal advice, or crisis language.
