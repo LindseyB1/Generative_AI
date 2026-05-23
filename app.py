@@ -60,12 +60,12 @@ h2, h3 {
 .stCaption,
 [data-testid="stCaptionContainer"] p {
     color: white !important;
-    font-size: 20px !important;
+    font-size: 25px !important;
     line-height: 1.6 !important;
 }
 
 .hero-description {
-    font-size: 26px !important;
+    font-size: 31px !important;
     font-weight: 500 !important;
     margin-bottom: 2rem !important;
 }
@@ -90,7 +90,7 @@ h2, h3 {
     border-radius: 12px !important;
     border: none !important;
     padding: 0.8rem 1.2rem !important;
-    font-size: 18px !important;
+    font-size: 25px !important;
     font-weight: 600 !important;
 }
 
@@ -101,7 +101,7 @@ h2, h3 {
 .stSlider label,
 .slider-label {
     color: white !important;
-    font-size: 18px !important;
+    font-size: 25px !important;
 }
 
 .stTextArea textarea,
