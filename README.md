@@ -70,7 +70,7 @@ The system attempts to reduce pressure before increasing complexity.
 
 # Live Demo
 
-[https://huggingface.co/spaces/LindseyB1/tanglarity-stability-ai](https://huggingface.co/spaces/LindseyB1/tanglarity-stability-ai)
+https://tanglarity-stabilityai.streamlit.app/
 
 ---
 
@@ -347,7 +347,7 @@ The application now:
 * securely loads API credentials through environment variables
 * dynamically loads the system prompt from `Prompts/system_prompt.md`
 * sends grounded stabilization inputs directly to the model
-* generates real AI assisted stabilization responses
+* generates real AI assisted stabilization responses using OpenAI `gpt-4o-mini`
 * uses structured grounding inputs to influence generated outputs
 
 The model receives contextual grounding information including:
@@ -359,7 +359,7 @@ The model receives contextual grounding information including:
 * pressure point description
 * support type selection
 
-These grounded inputs are injected directly into the model request before generation to create more adaptive, phase appropriate responses rather than relying entirely on static response branches.
+These grounded inputs are injected directly into the model request before generation to create more adaptive, phase appropriate responses rather than relying on static response branches.
 
 This transition moved Tanglarity from a structured prototype into a real AI powered stabilization workflow while maintaining constrained outputs, grounding structure, and stabilization focused design principles.
 
@@ -515,7 +515,7 @@ The project evolved through repeated experimentation, prompt refinement, workflo
 * Streamlit
 * GitHub
 * GitHub Codespaces
-* Hugging Face Spaces
+* Streamlit Cloud
 * GitHub Copilot
 * Canva
 * OpenAI API integration
@@ -535,16 +535,14 @@ OPENAI_API_KEY=your_api_key_here
 
 The `.env` file is excluded from GitHub through `.gitignore`.
 
-For deployed versions on Hugging Face Spaces, the API key is stored securely using:
-
-Settings → Repository Secrets
+For deployed versions on Streamlit Cloud, the API key should be stored securely in Streamlit secrets.
 
 This approach prevents exposing private API credentials publicly while allowing the application to securely access the OpenAI API during runtime.
 
 The application uses:
 
 * `python-dotenv` for local environment variable loading
-* Hugging Face Repository Secrets for deployment
+* Streamlit Cloud secrets for deployment
 * `.gitignore` protections to prevent secret exposure
 
 ---

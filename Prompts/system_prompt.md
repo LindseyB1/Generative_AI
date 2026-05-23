@@ -375,17 +375,16 @@ This improved readability and aligned the repository structure more closely with
 
 ### Prompt
 
-“How do I deploy on Hugging Face Spaces?”
+“How do I deploy on Streamlit Cloud?”
 
 ### Response
 
-The project successfully transitioned from a local prototype into a publicly deployed AI application using Hugging Face Spaces and Streamlit.
+The project successfully transitioned from a local prototype into a publicly deployed AI application using Streamlit Cloud.
 
 Deployment work included:
 
 * selecting Streamlit deployment
-* configuring Hugging Face Spaces
-* selecting CPU Basic hardware
+* configuring Streamlit Cloud secrets
 * setting public visibility
 * uploading project files
 * removing conflicting template files

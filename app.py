@@ -16,7 +16,7 @@ system_prompt = load_system_prompt()
 st.set_page_config(
     page_title="Tanglarity - Stability AI",
     page_icon="🧠",
-    layout="centered"
+    layout="wide"
 )
 
 st.markdown("""
@@ -31,64 +31,66 @@ st.markdown("""
 /* Main Headers */
 h1 {
     color: white !important;
-    font-size: 35px !important;
     font-weight: 700 !important;
 }
 
 /* Secondary Headers */
 h2, h3 {
     color: white !important;
-    font-size: 30px !important;
     font-weight: 600 !important;
 }
 
-/* ALL GENERAL TEXT */
-p, label, div, span {
-    color: white !important;
-    font-size: 20px !important;
+.hero-title {
+    font-size: 64px !important;
+    line-height: 1.0 !important;
+    margin-bottom: 0.2rem !important;
 }
 
-/* Captions */
-.stCaption {
+.hero-subtitle {
+    font-size: 40px !important;
     color: #dbeafe !important;
-    font-size: 18px !important;
+    margin-top: 0.2rem !important;
+    margin-bottom: 1.1rem !important;
 }
 
-/* Force Streamlit caption text to white */
+.hero-description,
+.body-text,
+.caption-text,
+.stInfo,
+.stCaption,
 [data-testid="stCaptionContainer"] p {
     color: white !important;
     font-size: 20px !important;
+    line-height: 1.6 !important;
 }
 
-[data-testid="stCaptionContainer"] {
+.hero-description {
+    font-size: 26px !important;
+    font-weight: 500 !important;
+    margin-bottom: 2rem !important;
+}
+
+.section-title {
     color: white !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
 }
 
-/* Text Areas */
-.stTextArea textarea {
-    background-color: #243241 !important;
-    color: white !important;
-    border-radius: 12px !important;
-    font-size: 20px !important;
-    border: 1px solid #5da6bd !important;
+.subtle-text {
+    color: #dbeafe !important;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
 }
 
-/* Select Boxes */
-.stSelectbox div[data-baseweb="select"] {
-    background-color: #243241 !important;
-    border-radius: 12px !important;
-    color: white !important;
-    font-size: 20px !important;
-}
-
-/* Buttons */
 .stButton button {
     background-color: #4f8ea3 !important;
     color: white !important;
     border-radius: 12px !important;
     border: none !important;
     padding: 0.8rem 1.2rem !important;
-    font-size: 20px !important;
+    font-size: 18px !important;
     font-weight: 600 !important;
 }
 
@@ -96,39 +98,41 @@ p, label, div, span {
     background-color: #5da6bd !important;
 }
 
-/* Slider labels */
-.stSlider label {
+.stSlider label,
+.slider-label {
     color: white !important;
-    font-size: 20px !important;
+    font-size: 18px !important;
 }
 
-/* Expander */
+.stTextArea textarea,
+.stSelectbox div[data-baseweb="select"] {
+    background-color: #243241 !important;
+    color: white !important;
+    border-radius: 12px !important;
+    font-size: 18px !important;
+    border: 1px solid #5da6bd !important;
+}
+
 .streamlit-expanderHeader {
     font-size: 22px !important;
     color: white !important;
     font-weight: 600 !important;
 }
 
-/* Success Messages */
-.stSuccess {
+.stSuccess,
+.success-text {
     font-size: 20px !important;
+    color: #d1fae5 !important;
 }
 
-/* Info Boxes */
-.stInfo {
-    font-size: 20px !important;
-    color: white !important;
-}
-
-/* Markdown Lists */
-ul, li {
-    font-size: 20px !important;
-    color: white !important;
-}
-
-/* Progress Bar Text */
 .stProgress > div > div > div > div {
     background-color: #5da6bd !important;
+}
+
+.progress-text {
+    font-size: 24px !important;
+    color: white !important;
+    font-weight: 700 !important;
 }
 
 </style>
@@ -193,63 +197,15 @@ Close the gap between knowing what to do and actually being able to do it.
 else:
     st.markdown("""
 
-<h1 style='
-    color: white;
-    font-size: 64px;
-    font-weight: 900;
-    margin-bottom: 0;
-    line-height: 1.0;
-'>
+<h1 class='hero-title'>
 Tanglarity
 </h1>
 
-<h2 style='
-    color: #dbeafe;
-    font-size: 42px;
-    font-weight: 600;
-    margin-top: 5px;
-    margin-bottom: 20px;
-'>
+<h2 class='hero-subtitle'>
 Stability AI
 </h2>
 
-<p style='
-    color: white;
-    font-size: 26px;
-    font-weight: 500;
-    margin-bottom: 35px;
-'>
-Close the gap between knowing what to do and actually being able to do it.
-</p>
-""", unsafe_allow_html=True)
-    st.markdown("""
-
-<h1 style='
-    color: white;
-    font-size: 72px;
-    font-weight: 900;
-    margin-bottom: 0;
-    line-height: 1.0;
-'>
-Welcome to Tanglarity
-</h1>
-
-<h2 style='
-    color: #dbeafe;
-    font-size: 46px;
-    font-weight: 600;
-    margin-top: 5px;
-    margin-bottom: 25px;
-'>
-Stability AI
-</h2>
-
-<p style='
-    color: white;
-    font-size: 28px;
-    font-weight: 500;
-    margin-bottom: 35px;
-'>
+<p class='hero-description'>
 Close the gap between knowing what to do and actually being able to do it.
 </p>
 """, unsafe_allow_html=True)
@@ -382,7 +338,7 @@ Stabilization progress estimate: {progress_average}%
 
         if not api_key:
             st.error(
-                "Missing OPENAI_API_KEY. Add it to your local .env file or Hugging Face Repository Secrets."
+                "Missing OPENAI_API_KEY. Add it to your local .env file or Streamlit secrets."
             )
 
         elif not pressure_point.strip():
