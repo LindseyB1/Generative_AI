@@ -1,16 +1,3 @@
----
-
-title: Tanglarity Stability AI
-emoji: 🧠
-colorFrom: blue
-colorTo: indigo
-sdk: streamlit
-sdk_version: "1.45.0"
-python_version: "3.10"
-app_file: app.py
-pinned: false
--------------
-
 # Tanglarity: Stability AI
 
 > An AI assisted stabilization system designed to help overwhelmed users reduce cognitive overload, identify their current phase, and move toward one manageable next action.
@@ -280,28 +267,67 @@ These techniques were intentionally selected to keep outputs stabilizing rather 
 
 ---
 
+## Gravity Prompt Critique Method
+
+One refinement technique explored during development was a challenge based prompt called the “Gravity” prompt:
+
+> “Act like gravity for my idea. Your job is to pull it back to reality. Attack the weakest points in my reasoning, challenge my assumptions, and expose what I might be missing. Be tough, specific, and do not sugarcoat your feedback.”
+
+This technique was used to intentionally challenge overly broad ideas, unrealistic scope, excessive complexity, and generic chatbot behavior during development.
+
+The process helped narrow Tanglarity from a broad emotional support concept into a more constrained stabilization focused workflow centered around manageable next actions, reduced overload, and grounded outputs.
+
+This approach improved:
+
+* scope control
+* deployment feasibility
+* workflow clarity
+* response realism
+* stabilization focused prompting
+* practical implementation
+
+---
+
 # System Prompt
 
 ```text
 You are Stability AI, a calm and structured assistant inside the Tanglarity platform.
 
-Your purpose is to help overwhelmed users reduce cognitive overload and move toward one manageable next action.
+Your purpose is to help users reduce cognitive overload, clarify their current pressure point, and move toward one manageable next action.
 
-You do not diagnose, provide therapy, give legal advice, or act as emergency support.
+You are not a therapist, doctor, attorney, emergency service, or crisis support system. Do not diagnose, provide therapy, give legal advice, or present yourself as professional care.
 
 Use plain language.
 
-Keep responses short, structured, grounded, and stabilizing.
+Keep responses structured, grounded, calm, concise, and realistic.
 
-Focus on the user's selected phase, pressure point, and support type.
+Focus on the user’s selected stabilization phase, overload level, clarity level, readiness level, support type, pressure point, and uploaded context if relevant.
 
 Prioritize stabilization before productivity.
 
-Avoid overwhelming the user with too many recommendations.
+Avoid overwhelming the user with too many recommendations or excessive planning.
 
-Support strategic non action when reducing pressure would be more stabilizing than adding tasks.
-```
+When the user appears overloaded, reduce complexity before suggesting additional action.
 
+Support strategic non action when reducing input, narrowing focus, gathering information, resting, delaying escalation, or pausing noncritical tasks would be more stabilizing than adding more pressure.
+
+Make the response specific to the user’s actual pressure point. Avoid generic motivational language, excessive reassurance, or placeholder wording.
+
+Do not use dramatic crisis language.
+
+Do not tell the user that “everything will be okay.” Instead, help identify what can be simplified, clarified, paused, organized, or approached next in a manageable way.
+
+When appropriate, provide:
+- a brief current phase summary
+- one priority lane
+- one or two realistic next actions
+- what to pause or reduce
+- a grounding reminder
+- an optional reflection question
+
+Keep recommendations realistic, manageable, and phase appropriate.
+
+Maintain a calm, practical, nonjudgmental tone throughout the interaction.
 ---
 
 # Grounding
@@ -333,6 +359,12 @@ This grounding structure helps keep responses:
 
 rather than producing unrestricted chatbot outputs.
 
+The application can also optionally accept uploaded `.txt` or `.md` files for additional grounding context.
+
+When documents are uploaded, relevant contextual information is included in the grounded model request before generation.
+
+This allows Stability AI to generate more situationally aware responses tied to the user’s actual pressure point, uploaded context, and stabilization phase rather than relying only on generalized prompting.
+
 ---
 
 # Real AI Model Integration
@@ -363,6 +395,21 @@ These grounded inputs are injected directly into the model request before genera
 
 This transition moved Tanglarity from a structured prototype into a real AI powered stabilization workflow while maintaining constrained outputs, grounding structure, and stabilization focused design principles.
 
+---
+## Simplified Workflow Architecture
+
+```text
+User Inputs
+↓
+Stabilization Phase + Sliders + Pressure Point + Uploaded Context
+↓
+Grounded User Prompt
+↓
+System Prompt
+↓
+OpenAI gpt 4o mini
+↓
+Structured Stability Plan
 ---
 
 # Build Log / Development Timeline
@@ -469,7 +516,26 @@ The system performed best when users clearly identified the main pressure point.
 The constrained response structure improved consistency and reduced overwhelming outputs compared to earlier unrestricted versions.
 
 ---
+---
 
+## Example Live AI Output
+
+Example user pressure point:
+
+> “I need to find affordable housing in my area and it is difficult finding something around $1,000 a month that allows three dogs.”
+
+The generated response successfully:
+
+* identified the user’s likely stabilization phase
+* narrowed the problem into one priority lane
+* suggested realistic next actions
+* incorporated uploaded housing context
+* avoided excessive productivity pressure
+* maintained a structured stabilization focused tone
+
+This demonstrated that grounded AI generation produced more adaptive and realistic outputs compared to earlier static response prototypes.
+
+---
 # Honest Limits
 
 Tanglarity is not:
